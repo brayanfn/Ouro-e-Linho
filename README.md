@@ -66,3 +66,4 @@ A licença do projeto é a GNU General Public License v3.0.
 | Ferramenta               | Etapa           | Finalidade                                     | Validação                                          |
 | ------------------------ | --------------- | ---------------------------------------------- | ---------------------------------------------------|
 | ChatGPT                  | Documentação    | Auxílio na criação do README.md                | Texto e conteúdo revisado e analisado pela equipe  |
+| ChatGPT                  | Documentação    | Auxílio na documentação do código              | Documentação analisada e revisada pela equipe       |
