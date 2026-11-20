@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --primary-color: #C6A15A;
+    --primary-hover: #A98543;
+    --secondary-color: #000000;
+    --tertiary-color: #ffffff;
+}
+
+.theme-primary {
+    --bs-theme-bg: var(--primary-color);
+    --bs-theme-contrast: var(--secondary-color);
+}
+
+body{
+    background-color: var(--tertiary-color);
+}
+
+.hero {
+    background-color: var(--secondary-color);
+    border-color: var(--primary-color);
+}
+
+.hero__title {
+    color: var(--tertiary-color);
+    font-size: 3rem;
+    font-family: "Cormorant Garamond", serif;
+}
+
+.hero__subtitle {
+    color: var(--primary-color);
+    font-family: "Montserrat";
+    letter-spacing: 3px;
+}
+
+.hero__button {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-family: "Montserrat";
+    font-weight: 600;
+    letter-spacing: 3px;
+    border: 0;
+    transition: transform 0.3s ease-in-out,
+                background-color 0.3s ease-in-out;
+}
+
+.hero__button:hover {
+    transform: scale(1.03);
+    background-color: var(--primary-hover);
+}
+
+.product-card__image {
+    max-height: 250px;
+    object-fit: contain;
+    width: 100%;
+    border-radius: 0;
+}
+
+.product-card__body{
+    background-color: var(--tertiary-color);
+    color: var(--secondary-color);
+}
+
+.product-card {
+    height: 100%;
+    border-radius: 5px;
+}
+
+.product-card__link {
+    margin-top: auto;
+}
+
+.product-carousel {
+    padding: 2rem 2rem;
+}
+
+.product-carousel__title{
+    color: var(--secondary-color);
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: "Montserrat";
+}
+
+.product-carousel__controls p{
+    text-decoration: underline;
+    color: var(--secondary-color);
+}
+
+.product-carousel__slider{
+    --bs-carousel-items: 2;
+    --bs-carousel-items-gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .hero__title {
+        font-size: 5rem;
+    }
+
+    .product-carousel__slider{
+    --bs-carousel-items: 4;
+}
+}
