@@ -11,6 +11,9 @@ require_once __DIR__ . '/../../includes/auth-admin.php';
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/navbar.php';
 
+$flash = $_SESSION['flash'] ?? null;
+unset($_SESSION['flash']);
+
 $sizes =['PP', 'P', 'M', 'G', 'GG', 'XG', 'XXG'];
 ?>
 
@@ -21,7 +24,12 @@ $sizes =['PP', 'P', 'M', 'G', 'GG', 'XG', 'XXG'];
         </h1>
         <p class="text-muted mb-0"><?= $text['create_product'] ?></p>   
     </section>
-
+    <?php if ($flash): ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <?= $flash ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif; ?>
     <section class="card">
         <div class="card-body">
 
@@ -49,7 +57,16 @@ $sizes =['PP', 'P', 'M', 'G', 'GG', 'XG', 'XXG'];
                         </div>
                     </div>
                 </div>
-
+                <div class="col-md-6">
+                    <div class="col-md-3">
+                        <label for="size" class= "form-label"><?= $text['size'] ?></label>    
+                        <select class="form-control" id="size" name="size" required>
+                            <?php foreach ($sizes as $size): ?>
+                                <option value="<?= $size ?>"><?= $size ?></option>
+                            <?php endforeach; ?>
+                        </select>             
+                    </div>
+                </div>
                 <div class="mb-3">
                     <label for="image" class="form-label"><?= $text['image'] ?></label>
                     <input type="file" class="form-control" id="image" name="image" accept="image/png, image/jpeg, image/webp">
