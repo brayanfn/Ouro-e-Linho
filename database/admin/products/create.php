@@ -35,7 +35,7 @@ require_once __DIR__ . '/../../includes/navbar.php';
                 </div>
                 <div class="mb-3">
                     <label for="price" class="form-label"><?= $text['price'] ?></label>
-                    <input type="number" step="0.01" class="form-control" id="price" name="price" required>
+                    <input type="number" step="0.01" min ="0" class="form-control" id="price" name="price" required>
                 </div>
                 <div class="mb-3">
                     <label for="category" class="form-label"><?= $text['category'] ?></label>
