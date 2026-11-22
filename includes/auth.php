@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 
 $sql = "SELECT * FROM users WHERE id = :id";
 
-$stmt = $conn->prepare($sql);
+$stmt = $con->prepare($sql);
 $stmt->execute([
     ':id' => $_SESSION['user_id']
 ]);
