@@ -12,7 +12,7 @@ require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/navbar.php';
 
 $flash = $_SESSION['flash'] ?? null;
-unset($_SESSION['flash']);
+unset($_SESSION['flash']);.
 
 $sizes =['PP', 'P', 'M', 'G', 'GG', 'XG', 'XXG'];
 ?>
@@ -24,12 +24,14 @@ $sizes =['PP', 'P', 'M', 'G', 'GG', 'XG', 'XXG'];
         </h1>
         <p class="text-muted mb-0"><?= $text['create_product'] ?></p>   
     </section>
+
     <?php if ($flash): ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <?= $flash ?>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php endif; ?>
+
     <section class="card">
         <div class="card-body">
 
@@ -65,6 +67,12 @@ $sizes =['PP', 'P', 'M', 'G', 'GG', 'XG', 'XXG'];
                                 <option value="<?= $size ?>"><?= $size ?></option>
                             <?php endforeach; ?>
                         </select>             
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="stock" class="form-label"><?= $text['stock'] ?></label>
+                        <input type="number" min="0" class="form-control" id="stock" name="stock" required>
                     </div>
                 </div>
                 <div class="mb-3">
