@@ -54,8 +54,8 @@ $sizes =['PP', 'P', 'M', 'G', 'GG', 'XG', 'XXG'];
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3">
-                            <label for="category" class="form-label"><?= $text['category'] ?></label>
-                            <input type="text" class="form-control" id="category" name="category" required>
+                            <label for="create_at" class="form-label"><?= $text['create_at'] ?></label>
+                            <input type="text" class="form-control" id="create_at" name="create_at" placeholder="Ex: Jundiaí, Brasil" required>
                         </div>
                     </div>
                 </div>
@@ -75,11 +75,13 @@ $sizes =['PP', 'P', 'M', 'G', 'GG', 'XG', 'XXG'];
                         <input type="number" min="0" class="form-control" id="stock" name="stock" required>
                     </div>
                 </div>
+
                 <div class="mb-3">
                     <label for="image" class="form-label"><?= $text['image'] ?></label>
                     <input type="file" class="form-control" id="image" name="image" accept="image/png, image/jpeg, image/webp">
                 </div>
                 <button type="submit" class="btn btn-primary"><?= $text['create_product'] ?></button>
+
             </form>
         </div>
      </section>
