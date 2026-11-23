@@ -23,12 +23,13 @@ if (! $product){ //Se o produto não for encontrado, aparece a menssagem de erro
     header ('product not found: '. BASE_URL . '/index.php');
     exit;
 }
-require_once __DIR__ . '/../../includes/header.php';
-require_once __DIR__ . '/../../includes/navbar.php';
 
 /** Mensagem de erro vinda do update.php (se houver) */
 $erro = $_SESSION['erro'] ?? null;
 unset($_SESSION['erro']);
+
+require_once __DIR__ . '/../../includes/header.php';
+require_once __DIR__ . '/../../includes/navbar.php';
 
 ?>
 <main class="container py-4">
