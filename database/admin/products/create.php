@@ -8,13 +8,15 @@ require_once __DIR__ . '/../../database/database.php';
 require_once __DIR__ . '/../../includes/auth.php';
 require_once __DIR__ . '/../../includes/auth-admin.php';
 
+$flash = $_SESSION['flash'] ?? null;
+unset($_SESSION['flash']);
+
+$sizes =['PP', 'P', 'M', 'G', 'GG', 'XG', 'XXG'];
+
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/navbar.php';
 
-$flash = $_SESSION['flash'] ?? null;
-unset($_SESSION['flash']);.
 
-$sizes =['PP', 'P', 'M', 'G', 'GG', 'XG', 'XXG'];
 ?>
 
 <main class="container py-4">
