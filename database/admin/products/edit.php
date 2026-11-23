@@ -87,9 +87,15 @@ require_once __DIR__ . '/../../includes/navbar.php';
                     </div>
                 </div>
                 <div class="col-md-6">
+                     <div class="mb-3">
+                         <label for="stock" class="form-label"><?= $text['stock'] ?></label>
+                         <input type="number" min="0" step="1" class="form-control" id="stock" name="stock" value="<?= (int) $product['stock'] ?>" required>
+                     </div>
+                </div>
+                <div class="col-md-6">
                     <div class="mb-3">
                         <label for="image" class="form-label"><?= $text['product_image'] ?></label>
-                        <input type="file" min="0"  class="form-control" id="image" name="image">
+                        <input type="file" max="1" class="form-control" id="image" name="image">
                     </div>
                 </div>
             </div>
