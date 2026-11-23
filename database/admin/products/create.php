@@ -16,7 +16,6 @@ $sizes =['PP', 'P', 'M', 'G', 'GG', 'XG', 'XXG'];
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/navbar.php';
 
-
 ?>
 
 <main class="container py-4">
@@ -28,10 +27,9 @@ require_once __DIR__ . '/../../includes/navbar.php';
     </section>
 
     <?php if ($flash): ?>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <?= $flash ?>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+     <div class="alert alert-<?= htmlspecialchars($flash['type']) ?>">
+        <?= htmlspecialchars($flash['msg']) ?>
+     </div>
     <?php endif; ?>
 
     <section class="card">
@@ -86,7 +84,7 @@ require_once __DIR__ . '/../../includes/navbar.php';
 
             </form>
         </div>
-     </section>
+    </section>
 </main>
 
 <?php
