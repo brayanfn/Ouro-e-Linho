@@ -13,3 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: ' . BASE_URL . '/admin/products/create.php');
     exit;
 }
+
+$name        = trim($_POST['name'] ?? '');
+$description = trim($_POST['description'] ?? '');
+$size        = $_POST['size'] ?? '';
+$price       = $_POST['price'] ?? '';
+$stock       = $_POST['stock'] ?? '';
