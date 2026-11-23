@@ -45,6 +45,36 @@ require_once __DIR__ . '/../../includes/navbar.php';
             <?= htmlspecialchars($erro) ?>
         </div>
     <?php endif; ?>
+    <section class="card">
+        <div class="card-body">
+
+        <form actioon="update.php" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<?= htmlspecialchars($product['id']) ?>">
+            <div class="mb-3">
+                <label for="name" class="form-label"><?= $text['product_name'] ?></label>
+                <input type="text" class="form-control" id="name" name="name" value="<?= htmlspecialchars($product['name']) ?>" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label"><?= $text['product_description'] ?></label>
+                <textarea class="form-control" id="description" name="description" rows="3" required><?= htmlspecialchars($product['description']) ?></textarea>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="price" class="form-label"><?= $text['price'] ?></label>
+                        <input type="number" step="0.01" min="0" class="form-control" id="price" name="price" value="<?= htmlspecialchars($product['price']) ?>" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="create_at" class="form-label"><?= $text['create_at'] ?></label>
+                        <input type="text" class="form-control" id="create_at" name="create_at" value="<?= htmlspecialchars($product['create_at']) ?>" required>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>  
 </main>
 <?php
   require_once __DIR__ . '/../../includes/footer.php';
