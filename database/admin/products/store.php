@@ -19,3 +19,14 @@ $description = trim($_POST['description'] ?? '');
 $size        = $_POST['size'] ?? '';
 $price       = $_POST['price'] ?? '';
 $stock       = $_POST['stock'] ?? '';
+
+if (
+    $name === '' || $description === '' ||
+    !is_numeric($price) || $price < 0 ||
+    !ctype_digit((string) $stock) ||
+    !in_array($size, ['PP', 'P', 'M', 'G', 'GG', 'XG'], true)
+) {
+    $_SESSION['erro'] = 'Preencha todos os campos corretamente.';
+    header('Location: ' . BASE_URL . '/admin/products/create.php');
+    exit;
+}
