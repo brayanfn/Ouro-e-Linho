@@ -54,6 +54,7 @@ require_once __DIR__ . '/../../includes/navbar.php';
                 <label for="name" class="form-label"><?= $text['product_name'] ?></label>
                 <input type="text" class="form-control" id="name" name="name" value="<?= htmlspecialchars($product['name']) ?>" required>
             </div>
+
             <div class="mb-3">
                 <label for="description" class="form-label"><?= $text['product_description'] ?></label>
                 <textarea class="form-control" id="description" name="description" rows="3" required><?= htmlspecialchars($product['description']) ?></textarea>
@@ -79,8 +80,8 @@ require_once __DIR__ . '/../../includes/navbar.php';
                     <div class="mb-3">
                         <label for size class="form=label"><?= $text['size'] ?></label>
                         <select class="form-control" id="size" name="size" required>
-                            <?php foreach ($sizes as $size): ?>
-                                <option value="<?= $size ?>" <?= $product['size'] === $size ? 'selected' : '' ?>><?= $size ?></option>
+                            <?php foreach (['PP', 'P', 'M', 'G', 'GG', 'XG', 'XXG'] as $s): ?>
+                                <option value="<?= $s ?>" <?= $product['size'] === $s ? 'selected' : '' ?>><?= $s ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -88,7 +89,7 @@ require_once __DIR__ . '/../../includes/navbar.php';
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="image" class="form-label"><?= $text['product_image'] ?></label>
-                        <input type="file" class="form-control" id="image" name="image">
+                        <input type="file" min="0"  class="form-control" id="image" name="image">
                     </div>
                 </div>
             </div>
