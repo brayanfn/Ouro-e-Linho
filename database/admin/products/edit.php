@@ -92,11 +92,18 @@ require_once __DIR__ . '/../../includes/navbar.php';
                          <input type="number" min="0" step="1" class="form-control" id="stock" name="stock" value="<?= (int) $product['stock'] ?>" required>
                      </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="image" class="form-label"><?= $text['product_image'] ?></label>
-                        <input type="file" max="1" class="form-control" id="image" name="image">
-                    </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label"><?= $text['image'] ?></label>
+
+                    <?php if ($product['image']): ?>
+                        <div class="mb-2">
+                            <p class="text-muted mb-1"><?= $text['current_image'] ?></p>
+                            <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>" style="max-height: 150px;">
+                        </div>
+                    <?php endif; ?>
+
+                    <input type="file" class="form-control" id="image" name="image" accept="image/png, image/jpeg, image/webp">
+                    <div class="form-text"><?= $text['keep_image_hint'] ?></div>
                 </div>
             </div>
         </form>
