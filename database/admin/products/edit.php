@@ -73,6 +73,25 @@ require_once __DIR__ . '/../../includes/navbar.php';
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for size class="form=label"><?= $text['size'] ?></label>
+                        <select class="form-control" id="size" name="size" required>
+                            <?php foreach ($sizes as $size): ?>
+                                <option value="<?= $size ?>" <?= $product['size'] === $size ? 'selected' : '' ?>><?= $size ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="image" class="form-label"><?= $text['product_image'] ?></label>
+                        <input type="file" class="form-control" id="image" name="image">
+                    </div>
+                </div>
+            </div>
         </form>
     </section>  
 </main>
