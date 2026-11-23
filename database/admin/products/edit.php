@@ -44,6 +44,7 @@ require_once __DIR__ . '/../../includes/navbar.php';
         <div class="alert alert-danger">
             <?= htmlspecialchars($erro) ?>
         </div>
+    <?php endif; ?>
 </main>
 <?php
   require_once __DIR__ . '/../../includes/footer.php';
