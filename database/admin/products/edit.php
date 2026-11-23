@@ -105,6 +105,14 @@ require_once __DIR__ . '/../../includes/navbar.php';
                     <input type="file" class="form-control" id="image" name="image" accept="image/png, image/jpeg, image/webp">
                     <div class="form-text"><?= $text['keep_image_hint'] ?></div>
                 </div>
+                <button type="submit" class="btn btn-primary"><?= $text['save_changes'] ?></button>
+              </form>
+
+            <form action="delete.php" method="POST" class="mt-3" onsubmit="return confirm('<?= htmlspecialchars($text['confirm_delete'], ENT_QUOTES) ?>');">
+                <input type="hidden" name="id" value="<?= (int) $product['id'] ?>">
+                <button type="submit" class="btn btn-danger"><?= $text['delete'] ?></button>
+            </form>
+
             </div>
         </form>
     </section>  
