@@ -68,6 +68,4 @@ $categories = $stmt->fetchAll(PDO::FETCH_COLUMN);
         <?php endif; ?>
     <?php endforeach; ?>
 
-</body>
-
-</html>
+require_once __DIR__ . '/../includes/footer.php';  
