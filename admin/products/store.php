@@ -23,10 +23,11 @@ $stock       = $_POST['stock'] ?? '';
 
 // Valida os dados
 if (
-    $name === '' || $description === '' || $created_at === '' ||
+    $name === '' || $description === '' ||
     !is_numeric($price) || $price < 0 ||
     !ctype_digit((string) $stock) ||
-    !in_array($size, ['PP', 'P', 'M', 'G', 'GG', 'XG', 'XXG'], true)
+    !in_array($size, ['PP', 'P', 'M', 'G', 'GG', 'XG'], true) ||
+    !in_array($category, ['camiseta', 'calca', 'jaqueta'], true)
 ) {
     $_SESSION['flash'] = [
         'type' => 'danger',
@@ -95,16 +96,16 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] !== UPLOAD_ERR_NO_FILE)
 
 // Salva no banco de dados
 $sql = "INSERT INTO products
-        (name, description, created_at, price, image, stock, size)
+        (name, description, category, price, image, stock, size)
         VALUES
-        (:name, :description, :created_at, :price, :image, :stock, :size)";
+        (:name, :description, :category, :price, :image, :stock, :size)";
 
 $stmt = $con->prepare($sql);
 
 $stmt->execute([
     ':name'        => $name,
     ':description' => $description,
-    ':created_at'  => $created_at,
+    ':category'    => $category,
     ':price'       => $price,
     ':image'       => $image,
     ':stock'       => $stock,
