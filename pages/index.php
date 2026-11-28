@@ -56,7 +56,13 @@ $categories = $stmt->fetchAll(PDO::FETCH_COLUMN);
                                     <div class="card-body product-card__body">
                                         <h4 class="card-title product-card__title"><?= htmlspecialchars($p['name']) ?></h4>
                                         <p class="card-text product-card__price">R$ <?= $p['price'] ?></p>
-                                        <a href="" class="btn-solid theme-primary product-card__link"><?= $text['view_product'] ?></a>
+                                        
+                                        <form action="<?= BASE_URL ?>/pages/cart.php" method="POST">
+                                            <input type="hidden" name="add" value="<?= $p['id'] ?>">
+                                            <button type="submit" class="btn-solid theme-primary product-card__link"><?= $text['add_to_cart'] ?></button>
+                                        </form>
+
+                                        <a href="<?= BASE_URL ?>/pages/product.php?id=<?= $p['id'] ?>" class="btn-solid theme-primary product-card__link"><?= $text['view_product'] ?></a>
                                     </div>
                                 </article>
                             </div>
