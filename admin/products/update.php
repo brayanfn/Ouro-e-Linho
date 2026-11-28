@@ -113,4 +113,27 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] !== UPLOAD_ERR_NO_FILE)
     $image    = BASE_URL . '/assets/uploads/' . $filename;
     $newImage = true;
 }
+
+$sql = "UPDATE products
+        SET name = :name,
+            description = :description,
+            category = :category,
+            price = :price,
+            image = :image,
+            stock = :stock,
+            size = :size
+        WHERE id = :id";
+
+$stmt = $con->prepare($sql);
+
+$stmt->execute([
+    ':name'        => $name,
+    ':description' => $description,
+    ':category'    => $category,
+    ':price'       => $price,
+    ':image'       => $image,
+    ':stock'       => $stock,
+    ':size'        => $size,
+    ':id'          => $id,
+]);
 ?>
