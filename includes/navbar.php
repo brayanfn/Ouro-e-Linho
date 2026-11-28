@@ -30,7 +30,7 @@ require_once __DIR__ . '/../lang/' . $lang . '.php';
                             <a class="nav-link active" aria-current="page" href="<?= BASE_URL ?>/pages/index.php"><?= $text['home']?></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><?= $text['products']?></a>
+                            <a class="nav-link" href="<?= BASE_URL ?>/pages/catalog/catalog.php"><?= $text['products']?></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" aria-disabled="true"><?= $text['cart']?></a>
@@ -40,24 +40,35 @@ require_once __DIR__ . '/../lang/' . $lang . '.php';
                                 <?= $text['profile']?>
                             </button>
                             <div class="menu">
-                                <a class="menu-item disabled" href="#"><?= $text['account']?></a>
+                                <a class="menu-item" href="<?= BASE_URL ?>/pages/<?= isset($_SESSION['user_id']) ? '#' : 'login.php' ?>"><?= $text['account']?></a>
                                 <a class="menu-item disabled" href="#"><?= $text['u-orders']?></a>
                                 <a class="menu-item disabled" href="#"><?= $text['settings']?></a>
                                 <hr class="menu-divider">
-                                <a class="menu-item" href="#"><?= $text['leave']?></a>
+                                <a class="menu-item" href="<?= BASE_URL ?>/pages/logout.php"><?= $text['leave']?></a>
                             </div>
                         </li>
                     </ul>
                     <form class="hstack gap-2" role="search">
-                        <input class="form-control" type="search" placeholder="<?= $text['search']?>" aria-label="Search" />
+                        <input class="form-control w-100" type="search" placeholder="<?= $text['search']?>" aria-label="Search" />
                         <button class="btn-solid btn-icon theme-secondary" type="submit">
                             <svg class="bi" width="16" height="16">
-                                <use href="#search" />
+                                <use href="#search"/>
                             </svg>
                         </button>
                     </form>
+
+                    <a href="?lang=en-us" class="btn btn-sm btn-outline-secondary">
+                        EN-US
+                    </a>
+                    <a href="?lang=pt-br" class="btn btn-sm btn-outline-secondary">
+                        PT-BR
+                    </a>  
                 </div>
+
+                
             </dialog>
+
+            
         </div>
     </nav>
 </header>

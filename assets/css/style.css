@@ -128,4 +128,65 @@ body{
     font-weight: 550;
     color: var(--secondary-color);
 }
+
+.product-detail__content{
+    gap: 20px;
+}
+
+.product-detail__action{
+    display: flex;
+    gap: 20px;
+}
+
+.product-detail__title{
+    font-family: "Comorant Garamond";
+    font-size: 50px;
+}
+
+.product-detail__price{
+    font-family: "Montserrat";
+    font-size: 25px;
+}
+
+.product-detail__cart{
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    font-family: "Montserrat";
+    font-weight: 550;
+    letter-spacing: 2px;
+}
+
+.product-detail__text{
+    font-family: "Montserrat";
+    font-size: 25px;
+}
+
+.product-detail__body{
+    border-top: 2px solid;
+}
+
+.product-detail{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+   
+}
+
+.product-detail__body{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.product-detail__related-products h2{
+    font-family: "Comorant Garamond";
+    font-size: 50px;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+.product-detail__description{
+    font-family: "Montserrat", serif;
+    letter-spacing: 1px;
+}
+    
 }
