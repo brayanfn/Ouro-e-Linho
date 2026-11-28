@@ -45,9 +45,9 @@ require_once __DIR__ . '/../../includes/navbar.php';
         </p>
     </section>
 
-    <?php if ($erro): ?>
-        <div class="alert alert-danger">
-            <?= htmlspecialchars($erro) ?>
+   <?php if ($flash): ?>
+        <div class="alert alert-<?= htmlspecialchars($flash['type']) ?>">
+             <?= htmlspecialchars($flash['msg']) ?>
         </div>
     <?php endif; ?>
 
@@ -67,6 +67,14 @@ require_once __DIR__ . '/../../includes/navbar.php';
                     <label for="description" class="form-label"><?= $text['product_description'] ?></label>
                     <textarea class="form-control" id="description" name="description" rows="3" required><?= htmlspecialchars($product['description']) ?></textarea>
                 </div>
+
+                <?php
+                 $categories = [
+                    'camiseta' => $text['shirts'],
+                    'calca'    => $text['pants'],
+                    'jaqueta'  => $text['jackets'],
+                ];
+                ?>
 
                 <div class="row">
 
@@ -96,7 +104,7 @@ require_once __DIR__ . '/../../includes/navbar.php';
                             <label for="size" class="form-label"><?= $text['size'] ?></label>
                             <select class="form-control" id="size" name="size" required>
 
-                                <?php foreach (['PP', 'P', 'M', 'G', 'GG', 'XG', 'XXG'] as $s): ?>
+                                <?php foreach (['PP', 'P', 'M', 'G', 'GG', 'XG'] as $s): ?>
                                     <option value="<?= $s ?>" <?= $product['size'] === $s ? 'selected' : '' ?>>
                                         <?= $s ?>
                                     </option>
@@ -132,7 +140,6 @@ require_once __DIR__ . '/../../includes/navbar.php';
                 <button type="submit" class="btn btn-primary">
                     <?= $text['save_changes'] ?>
                 </button>
-
             </form>
 
             <form action="delete.php" method="POST" class="mt-3" onsubmit="return confirm('<?= htmlspecialchars($text['confirm_delete'], ENT_QUOTES) ?>');">
