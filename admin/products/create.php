@@ -11,7 +11,7 @@ require_once __DIR__ . '/../../includes/auth-admin.php';
 $flash = $_SESSION['flash'] ?? null;
 unset($_SESSION['flash']);
 
-$sizes =['PP', 'P', 'M', 'G', 'GG', 'XG', 'XXG'];
+$sizes =['PP', 'P', 'M', 'G', 'GG', 'XG'];
 
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/navbar.php';
@@ -45,6 +45,15 @@ require_once __DIR__ . '/../../includes/navbar.php';
                     <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
                 </div>
 
+                <?php
+                    $categories = [
+                        'camiseta' => $text['shirts'],
+                        'calca'    => $text['pants'],
+                        'jaqueta'  => $text['jackets'],
+                    ];
+                ?>
+        
+                
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
@@ -52,13 +61,19 @@ require_once __DIR__ . '/../../includes/navbar.php';
                             <input type="number" step="0.01" min="0" class="form-control" id="price" name="price" required>
                         </div>
                     </div>
+
                     <div class="col-md-6">
                         <div class="mb-3">
-                            <label for="created_at" class="form-label"><?= $text['created_at'] ?></label>
-                            <input type="text" class="form-control" id="created_at" name="created_at" placeholder="Ex: Jundiaí, Brasil" required>
+                            <label for="category" class="form-label"><?= $text['category'] ?></label>
+                            <select class="form-control" id="category" name="category" required>
+                                <?php foreach ($categories as $value => $label): ?>
+                                    <option value="<?= $value ?>"><?= $label ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-md-6">
                       <div class="mb-3">
@@ -74,7 +89,7 @@ require_once __DIR__ . '/../../includes/navbar.php';
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="stock" class="form-label"><?= $text['stock'] ?></label>
-                        <input type="number" min="0" class="form-control" id="stock" name="stock" required>
+                        <input type="number" min="0" step="1" class="form-control" id="stock" name="stock" required>
                     </div>
                 </div>
             </div>
@@ -83,7 +98,7 @@ require_once __DIR__ . '/../../includes/navbar.php';
                     <label for="image" class="form-label"><?= $text['image'] ?></label>
                     <input type="file" class="form-control" id="image" name="image" accept="image/png, image/jpeg, image/webp">
                 </div>
-                <button type="submit" class="btn btn-primary"><?= $text['create_product'] ?></button>
+                <button type="submit" class="btn btn-primary"><?= $text['register_product'] ?></button>
 
             </form>
         </div>
