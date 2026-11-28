@@ -29,4 +29,4 @@ require_once __DIR__ . '/../lang/' . $lang . '.php';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
     <link href="<?= BASE_URL ?>/assets/css/style.css" rel="stylesheet">
 </head>
-<body>
+<body data-bs-theme="light">
