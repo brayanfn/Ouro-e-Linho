@@ -80,5 +80,37 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] !== UPLOAD_ERR_NO_FILE)
         header('Location: ' . $editUrl);
         exit;
     }
+    $mime = (new finfo(FILEINFO_MIME_TYPE))->file($file['tmp_name']);
+
+    if (!isset($allowed[$mime])) {
+        $_SESSION['flash'] = [
+            'type' => 'danger',
+            'msg' => 'Formato inválido. Use JPG, PNG ou WEBP.'
+        ];
+
+        header('Location: ' . $editUrl);
+        exit;
+    }
+
+    $dir = __DIR__ . '/../../assets/uploads/';
+
+    if (!is_dir($dir)) {
+        mkdir($dir, 0755, true);
+    }
+
+    $filename = bin2hex(random_bytes(16)) . '.' . $allowed[$mime];
+
+    if (!move_uploaded_file($file['tmp_name'], $dir . $filename)) {
+        $_SESSION['flash'] = [
+            'type' => 'danger',
+            'msg' => 'Não foi possível salvar a imagem.'
+        ];
+
+        header('Location: ' . $editUrl);
+        exit;
+    }
+
+    $image    = BASE_URL . '/assets/uploads/' . $filename;
+    $newImage = true;
 }
 ?>
