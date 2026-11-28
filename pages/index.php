@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../includes/header.php';
+require_once __DIR__ . '/../includes/navbar.php';
 
 require_once __DIR__ . '/../database/app.php';  
 require_once __DIR__ . '/../database/database.php'; 
@@ -8,9 +10,6 @@ $stmt->execute();
 $categories = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
 ?>
-
-<?php require_once __DIR__ . '/../includes/header.php'; ?>
-
 
     <section class="hero p-12 w-100 d-flex flex-column">
         <div class="hero__content">
