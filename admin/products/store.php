@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // Recebe os dados do formulário
 $name        = trim($_POST['name'] ?? '');
 $description = trim($_POST['description'] ?? '');
-$created_at   = trim($_POST['created_at'] ?? '');
+$category    = $_POST['category'] ?? '';
 $size        = $_POST['size'] ?? '';
 $price       = $_POST['price'] ?? '';
 $stock       = $_POST['stock'] ?? '';
