@@ -136,4 +136,20 @@ $stmt->execute([
     ':size'        => $size,
     ':id'          => $id,
 ]);
+
+if ($newImage && strpos($current['image'], BASE_URL . '/assets/uploads/') === 0) {
+    $oldFile = __DIR__ . '/../../assets/uploads/' . basename($current['image']);
+
+    if (is_file($oldFile)) {
+        unlink($oldFile);
+    }
+}
+
+$_SESSION['flash'] = [
+    'type' => 'success',
+    'msg' => 'Produto atualizado com sucesso!'
+];
+
+header('Location: ' . $redirect);
+exit;
 ?>
