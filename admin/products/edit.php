@@ -11,7 +11,7 @@ require_once __DIR__ . '/../../includes/auth-admin.php';
 $id = filter_var($_GET['id'] ?? '', FILTER_VALIDATE_INT);
 
 if (!$id) {
-    header('Location: ' . BASE_URL . '/index.php');
+   header('Location: ' . BASE_URL . '/admin/products/index.php');
     exit;
 }
 
@@ -20,13 +20,13 @@ $stmt->execute([':id' => $id]); // Executa a consulta usando o id
 $product = $stmt->fetch(PDO::FETCH_ASSOC); // Pega o produto que foi encontrado
 
 if (!$product) { // Se o produto não for encontrado, redireciona para a página inicial
-    header('Location: ' . BASE_URL . '/index.php');
+    header('Location: ' . BASE_URL . '/admin/products/index.php');
     exit;
 }
 
 /** Mensagem de erro vinda do update.php (se houver) */
-$erro = $_SESSION['erro'] ?? null;
-unset($_SESSION['erro']);
+$flash = $_SESSION['flash'] ?? null;
+unset($_SESSION['flash']);
 
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/navbar.php';
@@ -78,13 +78,16 @@ require_once __DIR__ . '/../../includes/navbar.php';
                     </div>
 
                     <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="create_at" class="form-label"><?= $text['create_at'] ?></label>
-                            <input type="text" class="form-control" id="create_at" name="create_at" value="<?= htmlspecialchars($product['create_at']) ?>" required>
+                            <div class="mb-3">
+                                <label for="category" class="form-label"><?= $text['category'] ?></label>
+                                <select class="form-control" id="category" name="category" required>
+                                    <?php foreach ($categories as $value => $label): ?>
+                                        <option value="<?= $value ?>" <?= $product['category'] === $value ? 'selected' : '' ?>><?= $label ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
                         </div>
                     </div>
-
-                </div>
 
                 <div class="row">
 
