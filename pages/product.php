@@ -35,19 +35,19 @@ $related = $stmtRelated->fetchAll(PDO::FETCH_ASSOC);
             <a class="nav-link" href="catalog.php"><?= $text['general'] ?></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="catalog.php?category=calca"><?= $text['pants'] ?></a>
+            <a class="nav-link" aria-current="page" href="catalog.php?category=pant"><?= $text['pants'] ?></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="catalog.php?category=camiseta"><?= $text['shirts']?></a>
+            <a class="nav-link" href="catalog.php?category=shirt"><?= $text['shirts']?></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><?= $text['jackets']?></a>
+            <a class="nav-link" href="catalog.php?category=jacket"><?= $text['jackets']?></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><?= $text['coats']?></a>
+            <a class="nav-link" href="catalog.php?category=coat"><?= $text['coats']?></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><?= $text['sweatshirts']?></a>
+            <a class="nav-link" href="catalog.php?category=sweatshirt"><?= $text['sweatshirts']?></a>
         </li>
     </ul>
     <div class="container product-detail">
@@ -77,16 +77,16 @@ $related = $stmtRelated->fetchAll(PDO::FETCH_ASSOC);
                     </p>
                     <div class="product-detail__action d-flex flex-column gap-3">
                         <div class="product-detail__select">
-                            <label for="size" class="form-label"><?=php $text['size'] ?></label>
+                            <label for="size" class="form-label"><?= $text['size'] ?></label>
                             <select class="form-control" type="select" id="size" name = "size" min = "0" step="0.001" required>
-                                <option value="" selected disabled><?=php $text['select_a_size'] ?></option>
+                                <option value="" selected disabled><?= $text['select_a_size'] ?></option>
                                 <option value="P">P</option>
                                 <option value="M">M</option>
                                 <option value="G">g</option>
                             </select>
                         </div>
                         <a class="product-detail__cart btn btn-solid theme-primary" href="#">
-                            <?=php $text['put_in_cart'] ?>
+                            <?= $text['put_in_cart'] ?>
                         </a>
                     </div>
                 </div>
@@ -126,7 +126,7 @@ $related = $stmtRelated->fetchAll(PDO::FETCH_ASSOC);
                             </div>
                             <div class="card-action card-product__actions">
                                 <a href="product.php?id=<?= $item['id'] ?>" class="btn btn-solid theme-primary card-product__button">
-                                <?=php $text['buy'] ?>
+                                <?= $text['buy'] ?>
                                 </a>
                             </div>
                         </section>

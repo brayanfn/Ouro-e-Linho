@@ -38,19 +38,19 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <a class="nav-link" href="catalog.php"><?= $text['general'] ?></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="catalog.php?category=calca"><?= $text['pants'] ?></a>
+            <a class="nav-link" aria-current="page" href="catalog.php?category=pant"><?= $text['pants'] ?></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="catalog.php?category=camiseta"><?= $text['shirts']?></a>
+            <a class="nav-link" href="catalog.php?category=shirt"><?= $text['shirts']?></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><?= $text['jackets']?></a>
+            <a class="nav-link" href="catalog.php?category=jacket"><?= $text['jackets']?></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><?= $text['coats']?></a>
+            <a class="nav-link" href="catalog.php?category=coat"><?= $text['coats']?></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><?= $text['sweatshirts']?></a>
+            <a class="nav-link" href="catalog.php?category=sweatshirt"><?= $text['sweatshirts']?></a>
         </li>
     </ul>
     <div class="container text-center py-6" data-bs-theme="light">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25/11/2026 às 12:03
+-- Tempo de geração: 28/11/2026 às 17:02
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -36,7 +36,7 @@ CREATE TABLE `products` (
   `stock` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `size` enum('PP','P','M','G','GG','XG') NOT NULL,
-  `category` enum('camiseta','calca','jaqueta') NOT NULL
+  `category` enum('shirt','pant','jacket','coat','sweatshirt') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
