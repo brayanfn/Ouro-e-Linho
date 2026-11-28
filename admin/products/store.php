@@ -16,14 +16,14 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // Recebe os dados do formulário
 $name        = trim($_POST['name'] ?? '');
 $description = trim($_POST['description'] ?? '');
-$create_at   = trim($_POST['create_at'] ?? '');
+$created_at   = trim($_POST['created_at'] ?? '');
 $size        = $_POST['size'] ?? '';
 $price       = $_POST['price'] ?? '';
 $stock       = $_POST['stock'] ?? '';
 
 // Valida os dados
 if (
-    $name === '' || $description === '' || $create_at === '' ||
+    $name === '' || $description === '' || $created_at === '' ||
     !is_numeric($price) || $price < 0 ||
     !ctype_digit((string) $stock) ||
     !in_array($size, ['PP', 'P', 'M', 'G', 'GG', 'XG', 'XXG'], true)
@@ -95,16 +95,16 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] !== UPLOAD_ERR_NO_FILE)
 
 // Salva no banco de dados
 $sql = "INSERT INTO products
-        (name, description, create_at, price, image, stock, size)
+        (name, description, created_at, price, image, stock, size)
         VALUES
-        (:name, :description, :create_at, :price, :image, :stock, :size)";
+        (:name, :description, :created_at, :price, :image, :stock, :size)";
 
 $stmt = $con->prepare($sql);
 
 $stmt->execute([
     ':name'        => $name,
     ':description' => $description,
-    ':create_at'   => $create_at,
+    ':created_at'  => $created_at,
     ':price'       => $price,
     ':image'       => $image,
     ':stock'       => $stock,

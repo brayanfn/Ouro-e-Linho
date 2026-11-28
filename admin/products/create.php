@@ -54,8 +54,8 @@ require_once __DIR__ . '/../../includes/navbar.php';
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3">
-                            <label for="create_at" class="form-label"><?= $text['create_at'] ?></label>
-                            <input type="text" class="form-control" id="create_at" name="create_at" placeholder="Ex: Jundiaí, Brasil" required>
+                            <label for="created_at" class="form-label"><?= $text['created_at'] ?></label>
+                            <input type="text" class="form-control" id="created_at" name="created_at" placeholder="Ex: Jundiaí, Brasil" required>
                         </div>
                     </div>
                 </div>
