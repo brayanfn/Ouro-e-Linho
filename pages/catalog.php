@@ -1,20 +1,33 @@
 <?php
 
 
-include_once __DIR__ . '/../../database/app.php';
-include_once __DIR__ . '/../../database/database.php';
+include_once __DIR__ . '/../database/app.php';
+include_once __DIR__ . '/../database/database.php';
 
-include_once __DIR__ . '/../../includes/header.php';
-include_once __DIR__ . '/../../includes/navbar.php';
+include_once __DIR__ . '/../includes/header.php';
+include_once __DIR__ . '/../includes/navbar.php';
 
 
-$sql = "SELECT *
-        FROM products
-        ORDER BY name ASC";
+$stmtCat = $con->prepare("SELECT DISTINCT category FROM products WHERE category");
+$stmtCat->execute();
+$categories = $stmtCat->fetchAll(PDO::FETCH_COLUMN);
 
-$stmt = $con->prepare($sql);
+$selectedCategory = $_GET['category'] ?? null;
 
-$stmt->execute();
+if (empty($selectedCategory)) {
+    $sql = "SELECT *
+    FROM products
+    ORDER BY name ASC";
+    $stmt = $con->prepare($sql);
+    $stmt->execute();
+} else {
+    $sql = "SELECT *
+    FROM products
+    WHERE category = :category
+    ORDER BY name ASC";
+    $stmt = $con->prepare($sql);
+    $stmt->execute([':category' => $selectedCategory]);
+}
 
 $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -25,10 +38,10 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <a class="nav-link" href="catalog.php"><?= $text['general'] ?></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="pants.php"><?= $text['pants'] ?></a>
+            <a class="nav-link" aria-current="page" href="catalog.php?category=calca"><?= $text['pants'] ?></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="shirts.php"><?= $text['shirts']?></a>
+            <a class="nav-link" href="catalog.php?category=camiseta"><?= $text['shirts']?></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#"><?= $text['jackets']?></a>
@@ -74,4 +87,4 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 </main>
 
-<?php include_once __DIR__ . '/../../includes/footer.php'; ?>
+<?php include_once __DIR__ . '/../includes/footer.php'; ?>
